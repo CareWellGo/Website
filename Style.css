@@ -197,16 +197,16 @@ body {
 
 .Node_Temp {
     top: 18%;
-    left: 30px;
+    left: 155px;
 }
 
 .Node_Heart {
     top: 50%;
-    right: 0px;
+    right: -68px;
 }
 
 .Node_Sensors {
-    bottom: 20%;
+    bottom: 9%;
     left: 100px;
     color: #00ff2a;
 }
@@ -230,6 +230,7 @@ body {
 }
 
 .Tech_Stats {
+    margin-top: 100px;
     display: flex;
     justify-content: space-around;
     padding: 100px 80px;
@@ -242,4 +243,30 @@ body {
 
 .Chnage_Later {
     padding-bottom: 50px;
+}
+
+/* Add this to your existing style.css */
+.purchase-alert-container {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 9999;
+}
+
+.alert-card {
+    background: rgba(255, 255, 255, 0.05); /* Glassmorphism */
+    backdrop-filter: blur(20px); /* Deep frosted effect */
+    border: 1px solid var(--primary-cyan); /* High-contrast neon */
+    box-shadow: 0 0 40px rgba(0, 234, 255, 0.3);
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    animation: slideIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(150%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
 }

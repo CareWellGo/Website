@@ -71,3 +71,28 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
 })
+
+window.onload = function() {
+    console.log("Timer started... see you in 1 minute!");
+
+    // Set timeout for 60,000ms (1 minute)
+    setTimeout(() => {
+        const alertBox = document.getElementById('purchaseAlert');
+        
+        // Make it visible
+        alertBox.style.display = 'block';
+        
+        // The CSS animation 'slideIn' will trigger automatically now
+    }, 60000); 
+};
+
+function closeAlert() {
+    const alert = document.getElementById('purchaseAlert');
+    alert.style.transition = "0.5s ease";
+    alert.style.transform = "translateX(120%)"; 
+    setTimeout(() => alert.remove(), 500);
+}
+
+function handlePurchase() {
+    alert("Redirecting to Secure Payment Portal...");
+}
