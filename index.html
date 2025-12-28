@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarewellGO</title>
-    <link rel="stylesheet" href="Style.css">
+    <title>CareWellGO</title>
+    <link rel="stylesheet" href="CSS/Big/Style.css">
     <link rel="shortcut icon" href="Images/Top_Img.png" type="image/x-icon">
 </head>
 
@@ -48,7 +48,6 @@
 
             <div class="Hero_Btns">
                 <button class="Btn_Primary">Deploy System</button>
-                <button class="Btn_Secondary">View AI Demo</button>
             </div>
         </div>
 
@@ -89,7 +88,7 @@
         <div class="alert-icon">✨</div>
         <div class="alert-content">
             <h4>Exclusive Offer Unlocked</h4>
-            <p>You've been active for 1 minute. Claim your 10% discount on CarewellGO today!</p>
+            <p>Claim your 10% discount on CarewellGO today!</p>
         </div>
         <div class="alert-actions">
             <button class="btn-buy" onclick="handlePurchase()">Claim Now</button>
@@ -98,23 +97,10 @@
     </div>
 </div>
 
-
-<section id="ai-care" class="ai">
-        <h2>Diagnostic AI</h2>
-        <div class="ai-container">
-            <div class="ai-chat" id="chat-box">
-                <div class="msg bot">Tell Your Symptoms.....</div>
-            </div>
-            <div class="ai-input">
-                <input type="text" id="user-input" placeholder="Enter symptoms (e.g., Fever, Cough, Cold)...">
-                <button class="Report" onclick="processAI()">Reports</button>
-            </div>
-        </div>
-    </section>
-
-
-    <script src="Script.js"></script>
-
+    <script src="JS/Scan_Line.js"></script>
+    <script src="JS/Robo_Sensors.js"></script>
+    <script src="JS/Stat_Counting.js"></script>
+    <script src="JS/Discount_Pop_Up.js"></script>
 </body>
 
 </html>

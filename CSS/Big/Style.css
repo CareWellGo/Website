@@ -11,7 +11,7 @@
 
 body {
     background: radial-gradient(circle at top right, #1a1a1a, #050505);
-    color: #fff;
+    color: #ffffff;
     overflow-x: hidden;
 }
 
@@ -46,31 +46,23 @@ body {
 }
 
 .Logo_Text {
+    font-size: 50px;
     background: linear-gradient(90deg, #00eaff, #7dff9c);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    font-size: 50px;
 }
 
 @keyframes Pulse_Logo {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.06);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); }
 }
 
 .Nav_Links a {
     margin-left: 40px;
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
     font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
@@ -78,7 +70,7 @@ body {
 
 .Btn_Contact_Nav {
     background: var(--Primary_Cyan);
-    color: #000;
+    color: #000000;
     padding: 10px 25px;
     border-radius: 5px;
 }
@@ -113,9 +105,9 @@ body {
     border-radius: 20px;
     border: 1px solid var(--Primary_Cyan);
     color: #00ff2a;
-    box-shadow: 0 0 12px rgba(0, 234, 255, 0.5);
     font-size: 11px;
     letter-spacing: 3px;
+    box-shadow: 0 0 12px rgba(0, 234, 255, 0.5);
 }
 
 .Accent_Line {
@@ -125,6 +117,10 @@ body {
     margin: 40px 0;
 }
 
+.Chnage_Later {
+    padding-bottom: 50px;
+}
+
 .Hero_Btns {
     display: flex;
     gap: 15px;
@@ -132,14 +128,7 @@ body {
 
 .Btn_Primary {
     background: var(--Primary_Cyan);
-    color: #000;
-    padding: 12px 25px;
-}
-
-.Btn_Secondary {
-    background: transparent;
-    border: 1px solid #fff;
-    color: #fff;
+    color: #000000;
     padding: 12px 25px;
 }
 
@@ -156,8 +145,8 @@ body {
 }
 
 .Robot_Main {
-    max-width: 650px;
     width: 100%;
+    max-width: 650px;
     filter: drop-shadow(0 0 40px rgba(0, 234, 255, 0.3));
     animation: Float_Robo 6s ease-in-out infinite;
 }
@@ -170,26 +159,18 @@ body {
 }
 
 @keyframes Float_Robo {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-18px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+    100% { transform: translateY(0); }
 }
 
 .Hud_Node {
     position: absolute;
-    border: 1px solid var(--Primary_Cyan);
     padding: 6px 14px;
     font-size: 11px;
     font-family: monospace;
     color: var(--Primary_Cyan);
+    border: 1px solid var(--Primary_Cyan);
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(6px);
     box-shadow: 0 0 15px rgba(0, 234, 255, 0.35);
@@ -215,25 +196,20 @@ body {
     position: absolute;
     width: 100%;
     height: 2px;
-    background: linear-gradient(to right, transparent, #00eaff, transparent);
+    background: linear-gradient(to right, transparent, var(--Primary_Cyan), transparent);
     animation: Glow 1.5s infinite alternate;
 }
 
 @keyframes Glow {
-    from {
-        opacity: 0.3;
-    }
-
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0.3; }
+    to { opacity: 1; }
 }
 
 .Tech_Stats {
-    margin-top: 100px;
     display: flex;
     justify-content: space-around;
     padding: 100px 80px;
+    margin-top: 100px;
 }
 
 .Stat h3 {
@@ -241,11 +217,6 @@ body {
     color: var(--Primary_Cyan);
 }
 
-.Chnage_Later {
-    padding-bottom: 50px;
-}
-
-/* Add this to your existing style.css */
 .purchase-alert-container {
     position: fixed;
     bottom: 40px;
@@ -254,102 +225,48 @@ body {
 }
 
 .alert-card {
-    background: rgba(255, 255, 255, 0.05); /* Glassmorphism */
-    backdrop-filter: blur(20px); /* Deep frosted effect */
-    border: 1px solid var(--primary-cyan); /* High-contrast neon */
-    box-shadow: 0 0 40px rgba(0, 234, 255, 0.3);
-    padding: 25px;
-    border-radius: 20px;
     display: flex;
     align-items: center;
     gap: 20px;
-    animation: slideIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--Primary_Cyan);
+    box-shadow: 0 0 40px rgba(0, 234, 255, 0.3);
+    animation: Slide_In 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-@keyframes slideIn {
+@keyframes Slide_In {
     0% { transform: translateX(150%); opacity: 0; }
     100% { transform: translateX(0); opacity: 1; }
 }
 
-
-.ai{
-    padding: 100px 10%;
-    text-align: center;
- }
-
-.ai-container {
-    background: var(--glass);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 15px;
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.ai-chat {
-    height: 300px;
-    overflow-y: auto;
-    text-align: left;
-    margin-bottom: 20px;
-    padding: 10px;
-}
-
-.msg{
- margin: 10px 0;
- padding: 10px;
- border-radius: 5px;
- }
-.bot{
- background: rgba(0, 242, 255, 0.1);
- color: var(--neon-cyan);
- }
-.user{
- background:rgba(255, 255, 255, 0.1);
-text-align: right; }
-
-input {
-    width: 70%;
-    padding: 10px;
-    background: transparent;
-    border: 1px solid #444;
-    color: white;
-    border-radius: 5px;
-}
-
-.btn-buy{
+.btn-buy {
     padding: 4px 7px;
     background: var(--Primary_Cyan);
     border: none;
-    color: #000;
     border-radius: 5px;
+    color: #000000;
     cursor: pointer;
 }
 
-.btn-close{
+.btn-close {
     padding: 2px 4px;
-    background: var(--Primary_Cyan);
+    background: #ff0000;
     border: none;
-    color: #000;
     border-radius: 5px;
+    color: #000000;
     cursor: pointer;
 }
-.Report{
-    padding: 10px 20px;
-    background: var(--Primary_Cyan);
-    border: none;
-    color: #000;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.Report:hover {
-    background: #018b9a;
-    font-weight: 600;
-}
+
 .btn-buy:hover {
     background: #018b9a;
     font-weight: 600;
 }
+
 .btn-close:hover {
-    background: #018b9a;
+    background: var(--Primary_Cyan);
+    color: #ff0000;
     font-weight: 600;
 }
