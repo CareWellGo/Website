@@ -270,3 +270,86 @@ body {
     0% { transform: translateX(150%); opacity: 0; }
     100% { transform: translateX(0); opacity: 1; }
 }
+
+
+.ai{
+    padding: 100px 10%;
+    text-align: center;
+ }
+
+.ai-container {
+    background: var(--glass);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ai-chat {
+    height: 300px;
+    overflow-y: auto;
+    text-align: left;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.msg{
+ margin: 10px 0;
+ padding: 10px;
+ border-radius: 5px;
+ }
+.bot{
+ background: rgba(0, 242, 255, 0.1);
+ color: var(--neon-cyan);
+ }
+.user{
+ background:rgba(255, 255, 255, 0.1);
+text-align: right; }
+
+input {
+    width: 70%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 5px;
+}
+
+.btn-buy{
+    padding: 4px 7px;
+    background: var(--Primary_Cyan);
+    border: none;
+    color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-close{
+    padding: 2px 4px;
+    background: var(--Primary_Cyan);
+    border: none;
+    color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.Report{
+    padding: 10px 20px;
+    background: var(--Primary_Cyan);
+    border: none;
+    color: #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.Report:hover {
+    background: #018b9a;
+    font-weight: 600;
+}
+.btn-buy:hover {
+    background: #018b9a;
+    font-weight: 600;
+}
+.btn-close:hover {
+    background: #018b9a;
+    font-weight: 600;
+}

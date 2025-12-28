@@ -96,3 +96,125 @@ function closeAlert() {
 function handlePurchase() {
     alert("Redirecting to Secure Payment Portal...");
 }
+
+
+// AI Diagnostic Chatbot Functionality
+/**
+ * CareWellGO - Core Intelligence & UI Controller
+ */
+
+class HealthcareAI {
+    constructor() {
+        // Initial Knowledge Base (Can be trained further)
+        this.database = [
+            { symptoms: ["hello", "hi","hyy"], diagnosis: "Enter Your Symptoms", cure: "Hello! How May I Help You." },
+            { symptoms: ["fever", "cough", "cold"], diagnosis: "Influenza (Flu)", cure: "Rest, hydration, and 500mg Paracetamol." },
+            { symptoms: ["chest pain", "shortness of breath"], diagnosis: "Acute Cardiac Distress", cure: "EMERGENCY: Administer Aspirin and call 911 immediately." },
+            { symptoms: ["headache", "blurred vision"], diagnosis: "Migraine / Hypertension", cure: "Dark room rest and blood pressure monitoring." }
+        ];
+    }
+
+    // "Train" function to add new data dynamically
+    trainAI(symptomList, diagnosisName, cureMethod) {
+        const entry = {
+            symptoms: symptomList.map(s => s.toLowerCase().trim()),
+            diagnosis: diagnosisName,
+            cure: cureMethod
+        };
+        this.database.push(entry);
+        console.log(`✅ AI Training Complete: ${diagnosisName} added to neural core.`);
+    }
+
+    // Diagnostic Logic: Finds the best match based on symptom overlap
+    diagnose(input) {
+        const query = input.toLowerCase();
+        let report = { match: null, score: 0 };
+
+        this.database.forEach(item => {
+            let matches = item.symptoms.filter(s => query.includes(s)).length;
+            let score = matches / item.symptoms.length;
+
+            if (score > report.score) {
+                report.score = score;
+                report.match = item;
+            }
+        });
+        return report;
+    }
+}
+
+// Initialize AI and UI Elements
+const roboAI = new HealthcareAI();
+const chatDisplay = document.getElementById('chat-box');
+const userInput = document.getElementById('user-input');
+
+/**
+ * Handle Diagnostic Interaction
+ */
+async function processAI() {
+    const text = userInput.value.trim();
+    if (!text) return;
+
+    // Display User Message
+    addMessage("Patient", text, 'user');
+    userInput.value = "";
+
+    // Simulate Robot "Processing"
+    const typingIndicator = addMessage("CareWellGO", "Scanning vitals and cross-referencing database...", 'bot thinking');
+    
+    await new Promise(res => setTimeout(res, 1500)); // Artificial Delay
+    typingIndicator.remove();
+
+    const result = roboAI.diagnose(text);
+
+    if (result.score > 0.3) {
+        const accuracy = (result.score * 100).toFixed(1);
+        const response = `
+            <strong>DIAGNOSIS FOUND (${accuracy}% Match):</strong> ${result.match.diagnosis}<br>
+            <strong>RECOMMENDED CURE:</strong> ${result.match.cure}
+        `;
+        addMessage("CareWellGO", response, 'bot success');
+    } else {
+        addMessage("CareWellGO", "Analysis inconclusive. Please provide more specific symptoms or contact a human specialist.", 'bot warning');
+    }
+}
+
+/**
+ * Helper to append messages to UI
+ */
+function addMessage(sender, text, type) {
+    const div = document.createElement('div');
+    div.className = `msg ${type}`;
+    div.innerHTML = `<strong>${sender}:</strong> ${text}`;
+    chatDisplay.appendChild(div);
+    chatDisplay.scrollTop = chatDisplay.scrollHeight;
+    return div;
+}
+
+/**
+ * Real-time Vitals Simulation (Updates the dashboard numbers)
+ */
+function simulateVitals() {
+    const bpm = document.getElementById('heart-rate');
+    const temp = document.getElementById('body-temp');
+
+    if(bpm) bpm.innerText = (Math.floor(Math.random() * (85 - 70) + 70)) + " BPM";
+    if(temp) temp.innerText = (Math.random() * (37.2 - 36.4) + 36.4).toFixed(1) + "°C";
+}
+
+setInterval(simulateVitals, 3000); // Update every 3 seconds
+
+// Allow "Enter" key to send message
+userInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") processAI();
+});
+
+/**
+ * Example of Training via UI Console
+ * Usage: trainSystem('sore throat, chills', 'Common Cold', 'Warm fluids and Vitamin C')
+ */
+window.trainSystem = (symptoms, diagnosis, cure) => {
+    const list = symptoms.split(',');
+    roboAI.trainAI(list, diagnosis, cure);
+    addMessage("System", `Successfully trained on ${diagnosis}.`, 'bot system');
+};
